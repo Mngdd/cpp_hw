@@ -29,7 +29,6 @@ int main() {
         std::cout << "> ";
         std::getline(std::cin, command);
         auto input = std::istringstream(command);
-        // todo: check id > 0
 
         std::vector<std::string> tokens;
 
