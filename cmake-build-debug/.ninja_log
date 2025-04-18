@@ -1,9 +1,0 @@
-# ninja log v6
-21	162	7665891160932114	CMakeFiles/cpp_hw.dir/Group.cpp.obj	f2d80f7224f738b9
-3	165	7665891160733223	CMakeFiles/cpp_hw.dir/task_1.cpp.obj	2a13eded06eb1cc7
-11	867	7665891160773471	CMakeFiles/cpp_hw.dir/User.cpp.obj	f47ec071e18378ec
-40	1517	7666772308294917	CMakeFiles/task_1.dir/task_1/Group.cpp.obj	55ca47952c0bcb2
-47	1246	7666355483430560	CMakeFiles/task_1.dir/task_1/User.cpp.obj	f984278b212725a9
-43	1819	7666774325583930	CMakeFiles/task_1.dir/task_1/Observer.cpp.obj	7b049d2be5435ecf
-32	2310	7666772308219650	CMakeFiles/task_1.dir/task_1/task_1.cpp.obj	201b93dcbf435104
-1820	2259	7666774343345643	task_1.exe	73e3b0006d0d55a3
