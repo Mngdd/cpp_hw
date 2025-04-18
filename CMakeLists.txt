@@ -12,5 +12,5 @@ add_executable(task_1 "task 1/task_1.cpp"
         "task 1/Observer.h")
 
 add_executable(task_2 "task 2/task_2.cpp"
-        "task 2/TypeList.cpp"
-        "task 2/TypeList.h")
+        "task 2/TypeList.hpp"
+)
