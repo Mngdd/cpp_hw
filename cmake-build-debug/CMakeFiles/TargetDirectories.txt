@@ -1,0 +1,4 @@
+A:/xj9/desktop/proging/cpp_hw/cmake-build-debug/CMakeFiles/task_1.dir
+A:/xj9/desktop/proging/cpp_hw/cmake-build-debug/CMakeFiles/task_2.dir
+A:/xj9/desktop/proging/cpp_hw/cmake-build-debug/CMakeFiles/edit_cache.dir
+A:/xj9/desktop/proging/cpp_hw/cmake-build-debug/CMakeFiles/rebuild_cache.dir
