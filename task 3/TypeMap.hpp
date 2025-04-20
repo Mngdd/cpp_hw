@@ -17,6 +17,8 @@ class TypeMap {
 public:
     template<class T, class... Args>
     void AddValue(Args &&... args) {
+        // TypeList<Ts...>::template contains<T> <<<--- типа компилятор не понимает это шаблон,
+        // тип или чет другое, вооот
         if (TypeList<Ts...>::template contains<T>) {
             constexpr std::size_t idx = TypeList<Ts...>::template get_index<T>;
             values_ptrs_[idx] = std::make_unique<T>(std::forward<Args>(args)...);
