@@ -19,3 +19,8 @@ add_executable(task_2
 add_executable(task_3
         "task 3/TypeMap.hpp"
         "task 3/task_3.cpp")
+
+add_executable(task_4
+        "task 4/task_4.cpp"
+        "task 4/lcs.hpp"
+        "task 4/counter.hpp")
