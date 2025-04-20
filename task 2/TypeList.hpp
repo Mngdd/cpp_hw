@@ -1,7 +1,3 @@
-//
-// Created by mngdd on 18.04.2025.
-//
-
 #ifndef TYPELIST_H
 #define TYPELIST_H
 
