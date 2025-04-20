@@ -7,6 +7,7 @@
 #include <iostream>
 #include <iomanip>  // std::put_time
 #include <ostream>
+#include "../task 4/counter.hpp"
 
 enum log_type {
     LOG_NORMAL,
@@ -32,12 +33,11 @@ namespace task_5 {
 }
 
 
-class Log {
+class Log : counter<Log> {
     size_t msg_count_ = 0, max_count_ = 0;
     std::deque<task_5::LogMessage> message_pool_{};
-
-public:
     Log(size_t N = 10);
+public:
 
     static Log *Instance(size_t N = 10);
 

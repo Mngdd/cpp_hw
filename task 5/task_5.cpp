@@ -10,6 +10,6 @@ int main(void) {
     log->message(LOG_NORMAL, "program loaded 5");
     log->message(LOG_ERROR, "error happens! help me!6");
     log->print();
-
+    Log *log2 = Log::Instance(5); // cant
     delete log;
 }

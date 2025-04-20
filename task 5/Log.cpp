@@ -10,10 +10,14 @@ task_5::LogMessage::LogMessage(log_type type, std::string &msg) : msg_(msg), typ
 }
 
 Log::Log(size_t N) : max_count_(N) {
-        if (N == 0) {
-            std::cout << "amount of max log messages should be more than zero! Set amount to N=10\n";
-            max_count_ = 10;
-        }
+    if (N == 0) {
+        std::cout << "amount of max log messages should be more than zero! Set amount to N=10\n";
+        max_count_ = 10;
+    }
+
+    if (counter<Log>::count() > 1) {
+        throw std::logic_error("Log already exists");
+    }
 }
 
 Log * Log::Instance(size_t N) {
