@@ -24,3 +24,7 @@ add_executable(task_4
         "task 4/task_4.cpp"
         "task 4/lcs.hpp"
         "task 4/counter.hpp")
+add_executable(task_5
+        "task 5/task_5.cpp"
+        "task 5/Log.cpp"
+        "task 5/Log.h")

@@ -1,7 +1,5 @@
 #ifndef COUNTER_H
 #define COUNTER_H
-#include <algorithm>
-#include <bits/ranges_algo.h>
 
 namespace task_4 {
     template<class T>
