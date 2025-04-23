@@ -42,6 +42,8 @@ public:
     static Log *Instance(size_t N = 10);
 
     ~Log() = default;
+    Log(const Log&) = delete;
+    Log(const Log&&) = delete;
 
     void message(log_type type, std::string msg);
 
