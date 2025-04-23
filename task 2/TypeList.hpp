@@ -32,16 +32,19 @@ namespace t2_inner {
         static constexpr bool value = false;
     };
 
+    template <int N, int N2, class OG, class T, typename... Ts>
+    struct get_index_ : get_index_<N, N2 - 1, OG, Ts...> {};
+
     template <int N, class OG, class T, typename... Ts>
-    struct get_index_ : get_index_<N + 1, OG, Ts...> {};
+    struct get_index_<N, 0, OG, T, Ts...> : get_index_<N + 1, 0, OG, Ts...> {};
 
     template <int N, class OG, typename... Ts>
-    struct get_index_<N, OG, OG, Ts...> {
+    struct get_index_<N, 0, OG, OG, Ts...> {
         static constexpr int value = N;
     };
 
     template <int N, class OG>
-    struct get_index_<N, OG, OG> {
+    struct get_index_<N, 0, OG, OG> {
         static constexpr int value = N;
     };
 
@@ -63,8 +66,8 @@ struct TypeList {
     static constexpr bool contains = t2_inner::contains_<T, Ts...>::value;
 
     // equals to t1.size if no such type exists...
-    template <class T>
-    static constexpr int get_index = t2_inner::get_index_<0, T, Ts...>::value;
+    template <class T, int StartFrom=0>
+    static constexpr int get_index = t2_inner::get_index_<StartFrom, StartFrom, T, Ts...>::value;
 
     // template <int N>
     // static constexpr get_type_<N, Ts...> get_type_struct_{};

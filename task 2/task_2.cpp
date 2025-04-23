@@ -10,7 +10,7 @@ int main() {
 
    std::cout << t1.contains<std::string> << std::endl;
 
-   std::cout << t1.get_index<float> << std::endl; // == t1.size if no such type exists...
+   std::cout << "index " << t1.get_index<int, 2> << std::endl; // == t1.size if no such type exists...
 
    using t1_type = TypeList<int, double, std::string, float, int>;
    std::cout << std::is_same_v<t1_type::type_by_index<3>, int> << std::endl;
