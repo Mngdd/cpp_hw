@@ -138,6 +138,4 @@ int main() {
 
     std::cout << "Union: "; u.print();
     std::cout << "Intersection: "; inter.print();
-
-    return 0;
 }
