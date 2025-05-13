@@ -1,12 +1,14 @@
 #include "Log.h"
+#include <sstream>
+
 
 task_5::LogMessage::LogMessage(log_type type, std::string &msg) : msg_(msg), type_(type) {
     std::time_t now = std::time(nullptr);
     std::tm *tm = std::localtime(&now);
 
-    std::ostringstream oss;
-    oss << std::put_time(tm, "%H:%M:%S");
-    time_txt_ = oss.str();
+    std::ostringstream osss{};
+    osss << std::put_time(tm, "%H:%M:%S");
+    time_txt_ = osss.str();
 }
 
 Log::Log(size_t N) : max_count_(N) {

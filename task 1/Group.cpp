@@ -3,13 +3,6 @@
 #include "User.h"
 #include <iostream>
 
-Group &Group::operator=(const Group &other) {
-    if (&other == this)
-        return *this;
-
-    id = other.id;
-    return *this;
-}
 
 bool Group::ContainsUserById(unsigned int id) const {
     return users_by_id_.contains(id);

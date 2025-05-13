@@ -21,7 +21,7 @@ public:
     Group() = default;
     ~Group() = default;
     Group(const unsigned int id_) : id(id_) {}
-    Group& operator=(const Group& other);
+    Group& operator=(const Group& other) = delete;
 
     bool ContainsUserById(unsigned int id) const;
     void AddUser(std::shared_ptr<User>& user_ptr);

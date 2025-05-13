@@ -48,7 +48,7 @@ public:
             return false;
         constexpr std::size_t idx = TypeList<Ts...>::template get_index<T>;
         auto &slot = values_ptrs_[idx];
-        if (auto ptr_to_up = std::get_if<std::unique_ptr<T> >(&slot)) {
+        if (auto ptr_to_up = std::get_if<std::unique_ptr<T>>(&slot)) {
             // ptr_to_up — указатель на std::unique_ptr<T>
             return *ptr_to_up != nullptr;
         }
