@@ -31,3 +31,6 @@ add_executable(task_5
 add_executable(task_6
         "task 6/task_6.cpp"
 )
+add_executable(task_7
+        "task 7/task_7.cpp"
+)
