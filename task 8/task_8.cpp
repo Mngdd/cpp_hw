@@ -74,7 +74,7 @@ public:
 
 class IntegerDivide : public BinaryOp {
 public:
-    IntegerDivide(ExprPtr l, ExprPtr r) : BinaryOp(l, r, "+") {}
+    IntegerDivide(ExprPtr l, ExprPtr r) : BinaryOp(l, r, "//") {}
     int evaluate(const std::map<std::string, int>& vars) const override {
         return left->evaluate(vars) / right->evaluate(vars);
     }
@@ -103,6 +103,7 @@ public:
     }
 
     ExprPtr getConstant(int v) {
+        prune(constPool);
         auto& wp = constPool[v]; // вик птр чтоб если что - удалился сам без проблем
         if (auto sp = wp.lock()) // если объект умер - nullptr
             return sp;
@@ -114,11 +115,25 @@ public:
     }
 
     ExprPtr getVariable(const std::string& name) {
+        prune(varPool);
         auto& wp = varPool[name];
         if (auto sp = wp.lock()) return sp;
         auto sp = std::make_shared<Variable>(name);
         wp = sp;
         return sp;
+    }
+
+    // чистим мертвые weak_ptr
+    template<typename K, typename WP>
+    void prune(std::map<K, WP>& pool) {
+        for (auto it = pool.begin(); it != pool.end(); ) {
+            if (it->second.expired())
+                it = pool.erase(it);
+            else
+                ++it;
+
+        }
+
     }
 };
 
@@ -127,17 +142,24 @@ public:
 int main() {
     auto& factory = ExpressionFactory::instance();
 
-    // считаем выражение: (2 + x) * 5, где x=3
-    auto addition = std::make_shared<Add>(
-        factory.getConstant(2),
-        factory.getVariable("x")
-    );
-    auto expr = std::make_shared<Multiply>(
-        addition,
-        factory.getConstant(5)
-    );
+    {
+        // считаем выражение: (2 + x) * 5, где x=3
+        auto addition = std::make_shared<Add>(
+            factory.getConstant(2),
+            factory.getVariable("x")
+        );
+        auto expr = std::make_shared<Multiply>(
+            addition,
+            factory.getConstant(5)
+        );
 
-    std::map<std::string,int> context{{"x", 3}};
-    expr->print(std::cout);
-    std::cout << " = " << expr->evaluate(context) << '\n';
+        std::map<std::string,int> context{{"x", 3}};
+        expr->print(std::cout);
+        std::cout << " = " << expr->evaluate(context) << '\n';
+    }
+
+    auto addition = std::make_shared<Add>(
+        factory.getConstant(3),
+        factory.getVariable("xx")
+    );
 }
